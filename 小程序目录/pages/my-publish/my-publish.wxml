@@ -1,0 +1,48 @@
+<!--pages/my-publish/my-publish.wxml-->
+<view class="container">
+  <!-- Tab栏 -->
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{currentTab === item.key ? 'active' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onTabChange"
+    >
+      {{item.name}}
+    </view>
+  </view>
+  
+  <!-- 列表 -->
+  <view class="list-container">
+    <view 
+      class="list-item"
+      wx:for="{{list}}"
+      wx:key="id"
+    >
+      <image class="item-image" src="{{item.coverImage}}" mode="aspectFill" />
+      <view class="item-content" data-id="{{item.id}}" bindtap="goToDetail">
+        <view class="item-title">{{item.title}}</view>
+        <view class="item-meta">
+          <text class="tag tag-{{item.status}}">{{item.statusText}}</text>
+          <text class="time">{{item.publishTimeText}}</text>
+        </view>
+        <view class="item-location">{{item.location}}</view>
+      </view>
+      <view class="item-actions">
+        <view class="action-btn delete" data-id="{{item.id}}" catchtap="deleteItem">删除</view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{isEmpty && !loading}}">
+      <text class="empty-icon">📝</text>
+      <text class="empty-text">暂无发布信息</text>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view class="loading-state" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>

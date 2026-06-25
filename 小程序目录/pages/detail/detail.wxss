@@ -1,0 +1,339 @@
+/**
+ * 详情页样式
+ */
+
+page {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==================== 图片轮播 ==================== */
+.image-swiper {
+  width: 100%;
+  height: 560rpx;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== 内容滚动区 ==================== */
+.content-scroll {
+  flex: 1;
+  height: 0;
+  background-color: #FFFFFF;
+}
+
+/* ==================== 状态栏 ==================== */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+}
+
+.status-tag {
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.status-tag.tag-lost {
+  background-color: rgba(255, 77, 79, 0.1);
+  color: #FF4D4F;
+}
+
+.status-tag.tag-found {
+  background-color: rgba(82, 196, 26, 0.1);
+  color: #52C41A;
+}
+
+.status-tag.tag-adopt {
+  background-color: rgba(24, 144, 255, 0.1);
+  color: #1890FF;
+}
+
+.publish-time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* ==================== 标题 ==================== */
+.title {
+  padding: 0 24rpx 24rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  line-height: 1.4;
+}
+
+/* ==================== 基本信息 ==================== */
+.info-section {
+  margin: 0 24rpx;
+  padding: 24rpx;
+  background-color: #F8F9FA;
+  border-radius: 16rpx;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-row:first-child {
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* ==================== 详细描述 ==================== */
+.desc-section {
+  padding: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.desc-content {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ==================== 位置信息 ==================== */
+.location-section {
+  display: flex;
+  align-items: center;
+  margin: 0 24rpx;
+  padding: 24rpx;
+  background-color: #FFF5EE;
+  border-radius: 16rpx;
+}
+
+.location-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.location-info {
+  flex: 1;
+}
+
+.location-label {
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 4rpx;
+}
+
+.location-value {
+  font-size: 28rpx;
+  color: #FF8C38;
+  font-weight: 500;
+}
+
+.location-arrow {
+  font-size: 32rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== 互动区 ==================== */
+.interact-section {
+  padding: 24rpx;
+  margin-top: 24rpx;
+  background-color: #FFFFFF;
+}
+
+.comment-list {
+  margin-top: 16rpx;
+}
+
+.comment-item {
+  display: flex;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  background-color: #F5F5F5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.comment-nickname {
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.comment-time {
+  font-size: 22rpx;
+  color: #CCCCCC;
+}
+
+.comment-text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.empty-comment {
+  text-align: center;
+  padding: 48rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* ==================== 底部占位 ==================== */
+.bottom-placeholder {
+  height: 200rpx;
+}
+
+/* ==================== 操作栏 ==================== */
+.action-bar {
+  position: fixed;
+  bottom: 120rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20rpx 32rpx;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.action-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-icon {
+  font-size: 40rpx;
+  margin-bottom: 8rpx;
+}
+
+.action-text {
+  font-size: 22rpx;
+  color: #666666;
+}
+
+.action-btn {
+  padding: 16rpx 32rpx;
+  background: linear-gradient(135deg, #FF8C38 0%, #FFB88C 100%);
+  color: #FFFFFF;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+/* ==================== 评论输入框 ==================== */
+.comment-input-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background-color: #FFFFFF;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.comment-input {
+  flex: 1;
+  height: 72rpx;
+  padding: 0 24rpx;
+  background-color: #F5F5F5;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+}
+
+.comment-submit {
+  margin-left: 20rpx;
+  padding: 16rpx 32rpx;
+  background-color: #FF8C38;
+  color: #FFFFFF;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+}
+
+/* ==================== 加载状态 ==================== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid #F5F5F5;
+  border-top-color: #FF8C38;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 16rpx;
+}

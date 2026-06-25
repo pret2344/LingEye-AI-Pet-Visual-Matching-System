@@ -1,0 +1,57 @@
+<!--pages/settings/settings.wxml-->
+<view class="container">
+  <view class="settings-section">
+    <view class="section-title">消息通知</view>
+    
+    <view class="setting-item">
+      <view class="setting-info">
+        <view class="setting-title">接收消息通知</view>
+        <view class="setting-desc">开启后将接收系统消息推送</view>
+      </view>
+      <switch 
+        checked="{{settings.notification}}" 
+        data-key="notification"
+        bindchange="onSwitchChange"
+        color="#FF8C38"
+      />
+    </view>
+    
+    <view class="setting-item">
+      <view class="setting-info">
+        <view class="setting-title">匹配结果通知</view>
+        <view class="setting-desc">有新的匹配结果时通知您</view>
+      </view>
+      <switch 
+        checked="{{settings.matchNotify}}" 
+        data-key="matchNotify"
+        bindchange="onSwitchChange"
+        color="#FF8C38"
+      />
+    </view>
+    
+    <view class="setting-item">
+      <view class="setting-info">
+        <view class="setting-title">评论回复通知</view>
+        <view class="setting-desc">有人回复您的评论时通知</view>
+      </view>
+      <switch 
+        checked="{{settings.commentNotify}}" 
+        data-key="commentNotify"
+        bindchange="onSwitchChange"
+        color="#FF8C38"
+      />
+    </view>
+  </view>
+  
+  <view class="settings-section">
+    <view class="section-title">其他</view>
+    
+    <view class="setting-item" bindtap="clearCache">
+      <view class="setting-info">
+        <view class="setting-title">清除缓存</view>
+        <view class="setting-desc">清除本地缓存数据</view>
+      </view>
+      <view class="setting-arrow">›</view>
+    </view>
+  </view>
+</view>

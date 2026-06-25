@@ -1,0 +1,105 @@
+<!--pages/ai-match/ai-match.wxml-->
+<!-- AI匹配页 -->
+
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <view class="page-title">AI智能匹配</view>
+    <view class="page-desc">上传宠物照片，AI自动识别并匹配走失信息</view>
+  </view>
+  
+  <!-- 上传区域 -->
+  <view class="upload-section" wx:if="{{!imagePath}}">
+    <view class="upload-area" bindtap="onChooseImage">
+      <view class="upload-icon">📷</view>
+      <view class="upload-text">拍照或选择照片</view>
+      <view class="upload-hint">最多上传1张图片</view>
+    </view>
+  </view>
+  
+  <!-- 识别中状态 -->
+  <view class="recognizing-section" wx:if="{{imagePath && isRecognizing}}">
+    <image class="preview-image" src="{{imagePath}}" mode="aspectFill" />
+    <view class="recognizing-overlay">
+      <view class="loading-spinner"></view>
+      <view class="recognizing-text">AI特征提取中...</view>
+    </view>
+  </view>
+  
+  <!-- 识别结果 -->
+  <view class="result-section" wx:if="{{aiResult && !isRecognizing}}">
+    <!-- 预览图片 -->
+    <view class="preview-section">
+      <image class="preview-image" src="{{imagePath}}" mode="aspectFill" />
+      <view class="reupload-btn" bindtap="onReupload">重新上传</view>
+    </view>
+    
+    <!-- AI识别结果 -->
+    <view class="ai-result-card">
+      <view class="ai-title">🤖 AI识别结果</view>
+      <view class="ai-info">
+        <view class="ai-item">
+          <text class="ai-label">品种：</text>
+          <text class="ai-value">{{aiResult.breed}}</text>
+        </view>
+        <view class="ai-item">
+          <text class="ai-label">毛色：</text>
+          <text class="ai-value">{{aiResult.color}}</text>
+        </view>
+        <view class="ai-item">
+          <text class="ai-label">置信度：</text>
+          <text class="ai-value highlight">{{aiResult.confidence}}%</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 匹配结果 -->
+    <view class="match-section" wx:if="{{showMatchResults}}">
+      <view class="section-header">
+        <view class="section-title">🐾 匹配结果</view>
+        <view class="match-count">找到 {{matchResults.length}} 条相似信息</view>
+      </view>
+      
+      <view class="match-list">
+        <view 
+          class="match-item"
+          wx:for="{{matchResults}}"
+          wx:key="id"
+          data-id="{{item.pet.id}}"
+          bindtap="onViewDetail"
+        >
+          <view class="match-images">
+            <image class="match-image match-upload" src="{{imagePath}}" mode="aspectFill" />
+            <view class="vs-text">VS</view>
+            <image class="match-image match-target" src="{{item.pet.image}}" mode="aspectFill" />
+          </view>
+          
+          <view class="match-info">
+            <view class="match-title">{{item.pet.title}}</view>
+            <view class="match-detail">
+              <text class="match-breed">{{item.pet.breed}}</text>
+              <text class="match-divider">·</text>
+              <text class="match-color">{{item.pet.color}}</text>
+            </view>
+            <view class="match-location">📍 {{item.pet.location}}</view>
+          </view>
+          
+          <view class="match-similarity">
+            <view class="similarity-bar">
+              <view 
+                class="similarity-fill" 
+                style="width: {{item.similarity}}%"
+              ></view>
+            </view>
+            <text class="similarity-text">{{item.similarity}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部说明 -->
+  <view class="footer-tip">
+    <text>💡 AI匹配基于图像特征相似度计算，仅供参考</text>
+  </view>
+</view>

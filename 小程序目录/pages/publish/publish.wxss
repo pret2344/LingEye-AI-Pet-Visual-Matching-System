@@ -1,0 +1,357 @@
+/**
+ * 发布页样式
+ */
+
+page {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==================== 导航栏 ==================== */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 32rpx;
+  background-color: #FFFFFF;
+}
+
+.nav-back {
+  font-size: 48rpx;
+  color: #333333;
+  width: 80rpx;
+}
+
+.nav-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.nav-placeholder {
+  width: 80rpx;
+}
+
+/* ==================== 类型选择 ==================== */
+.type-tabs {
+  display: flex;
+  padding: 0 24rpx;
+  background-color: #FFFFFF;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.type-tab {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666666;
+  position: relative;
+}
+
+.type-tab.active {
+  color: #FF8C38;
+  font-weight: 600;
+}
+
+.type-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48rpx;
+  height: 6rpx;
+  background-color: #FF8C38;
+  border-radius: 3rpx;
+}
+
+/* ==================== 表单滚动区 ==================== */
+.form-scroll {
+  flex: 1;
+  height: 0;
+  padding: 24rpx;
+}
+
+/* ==================== 表单区域 ==================== */
+.form-section {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+
+.section-title text:first-child {
+  color: #FF4D4F;
+  margin-right: 8rpx;
+}
+
+/* ==================== 图片上传区 ==================== */
+.upload-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.upload-item {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.upload-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.upload-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.upload-cover {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+.cover-tag {
+  position: absolute;
+  bottom: 8rpx;
+  left: 8rpx;
+  padding: 4rpx 12rpx;
+  background-color: rgba(255, 140, 56, 0.9);
+  color: #FFFFFF;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+}
+
+.upload-btn {
+  width: 200rpx;
+  height: 200rpx;
+  border: 2rpx dashed #DDDDDD;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon {
+  font-size: 48rpx;
+  color: #CCCCCC;
+  margin-bottom: 8rpx;
+}
+
+.upload-text {
+  font-size: 24rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== AI识别按钮 ==================== */
+.ai-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  background-color: #FFF5EE;
+  border-radius: 12rpx;
+  margin-top: 16rpx;
+}
+
+.ai-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.ai-text {
+  font-size: 28rpx;
+  color: #FF8C38;
+}
+
+/* ==================== AI识别结果 ==================== */
+.ai-result {
+  background-color: #F8F9FA;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-top: 16rpx;
+}
+
+.ai-title {
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 16rpx;
+}
+
+.ai-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ai-item {
+  width: 50%;
+  display: flex;
+  margin-bottom: 8rpx;
+}
+
+.ai-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.ai-value {
+  font-size: 24rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+/* ==================== 表单输入 ==================== */
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 24rpx;
+  background-color: #F8F9FA;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.input-placeholder {
+  color: #CCCCCC;
+}
+
+/* ==================== 性别选择 ==================== */
+.gender-options {
+  display: flex;
+}
+
+.gender-option {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx;
+  background-color: #F8F9FA;
+  border-radius: 12rpx;
+  margin-right: 16rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.gender-option:last-child {
+  margin-right: 0;
+}
+
+.gender-option.active {
+  background-color: #FF8C38;
+  color: #FFFFFF;
+}
+
+/* ==================== 文本域 ==================== */
+.form-textarea {
+  width: 100%;
+  height: 200rpx;
+  padding: 20rpx 24rpx;
+  background-color: #F8F9FA;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.textarea-count {
+  text-align: right;
+  font-size: 22rpx;
+  color: #CCCCCC;
+  margin-top: 12rpx;
+}
+
+.reward-tip {
+  font-size: 22rpx;
+  color: #FF4D4F;
+  margin-top: 12rpx;
+}
+
+/* ==================== 地点选择器 ==================== */
+.location-picker {
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding: 0 24rpx;
+  background-color: #F8F9FA;
+  border-radius: 12rpx;
+}
+
+.location-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.location-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.location-arrow {
+  font-size: 32rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== 底部占位 ==================== */
+.bottom-placeholder {
+  height: 160rpx;
+}
+
+/* ==================== 提交栏 ==================== */
+.submit-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  background-color: #FFFFFF;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.daily-tip {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.submit-btn {
+  width: 320rpx;
+  height: 88rpx;
+  background: linear-gradient(135deg, #FF8C38 0%, #FFB88C 100%);
+  color: #FFFFFF;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}

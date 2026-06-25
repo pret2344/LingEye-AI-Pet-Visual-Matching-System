@@ -1,0 +1,40 @@
+<!--pages/my-match/my-match.wxml-->
+<view class="container">
+  <view class="list-container">
+    <view 
+      class="match-item"
+      wx:for="{{list}}"
+      wx:key="id"
+      data-id="{{item.petId}}"
+      bindtap="goToDetail"
+    >
+      <view class="match-images">
+        <image class="match-img" src="{{item.uploadImage}}" mode="aspectFill" />
+        <view class="match-arrow">→</view>
+        <image class="match-img" src="{{item.petImage}}" mode="aspectFill" />
+      </view>
+      
+      <view class="match-info">
+        <view class="match-title">{{item.petTitle}}</view>
+        <view class="match-similarity">
+          <view class="similarity-bar">
+            <view class="similarity-fill {{item.matchLevel}}" style="width: {{item.similarity}}%"></view>
+          </view>
+          <text class="similarity-value {{item.matchLevel}}">{{item.similarity}}%</text>
+        </view>
+        <view class="match-time">{{item.matchTimeText}}</view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{isEmpty && !loading}}">
+      <text class="empty-icon">🔍</text>
+      <text class="empty-text">暂无匹配记录</text>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view class="loading-state" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,146 @@
+<!--pages/index/index.wxml-->
+<!-- 首页 - 宠物信息列表 -->
+
+<view class="container">
+  <!-- 顶部区域 -->
+  <view class="header">
+    <view class="location-bar">
+      <view class="location-icon">📍</view>
+      <text class="location-text">{{currentCity}}</text>
+      <view class="location-arrow">▼</view>
+    </view>
+    
+    <!-- Tab栏 -->
+    <view class="tab-bar">
+      <view class="tab-line-wrapper">
+        <view 
+          class="tab-line"
+          style="left: {{tabLineLeft}}%"
+        ></view>
+      </view>
+      <view 
+        class="tab-item {{currentTab === item.key ? 'active' : ''}}"
+        wx:for="{{tabs}}"
+        wx:key="key"
+        data-key="{{item.key}}"
+        bindtap="onTabChange"
+      >
+        <text class="tab-name">{{item.name}}</text>
+      </view>
+      
+      <!-- 地图入口 -->
+      <view class="map-btn" bindtap="goToMap">
+        <text class="map-icon">🗺️</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 内容区域 -->
+  <scroll-view 
+    class="content-scroll"
+    scroll-y
+    refresher-enabled
+    refresher-triggered="{{refreshing}}"
+    bindrefresherrefresh="refreshData"
+    bindscrolltolower="loadMore"
+  >
+    <!-- 瀑布流列表 -->
+    <view class="waterfall-container" wx:if="{{list.length > 0}}">
+      <!-- 左列 -->
+      <view class="waterfall-column left-column">
+        <view 
+          class="pet-card"
+          wx:for="{{leftList}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="goToDetail"
+        >
+          <!-- 封面图 -->
+          <view class="card-image-wrapper">
+            <image 
+              class="card-image"
+              src="{{item.coverImage}}"
+              mode="aspectFill"
+              lazy-load
+            />
+          </view>
+          
+          <!-- 卡片内容 -->
+          <view class="card-content">
+            <view class="card-title">{{item.title}}</view>
+            <view class="card-info">
+              <text class="card-location-icon">📍</text>
+              <text class="card-location-text">{{item.location || '未知地点'}}</text>
+            </view>
+            <view class="card-footer">
+              <view class="card-tag tag-{{item.type}}">{{item.statusText}}</view>
+              <view class="card-time">{{item.publishTimeText}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 右列 -->
+      <view class="waterfall-column right-column">
+        <view 
+          class="pet-card"
+          wx:for="{{rightList}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="goToDetail"
+        >
+          <!-- 封面图 -->
+          <view class="card-image-wrapper">
+            <image 
+              class="card-image"
+              src="{{item.coverImage}}"
+              mode="aspectFill"
+              lazy-load
+            />
+          </view>
+          
+          <!-- 卡片内容 -->
+          <view class="card-content">
+            <view class="card-title">{{item.title}}</view>
+            <view class="card-info">
+              <text class="card-location-icon">📍</text>
+              <text class="card-location-text">{{item.location || '未知地点'}}</text>
+            </view>
+            <view class="card-footer">
+              <view class="card-tag tag-{{item.type}}">{{item.statusText}}</view>
+              <view class="card-time">{{item.publishTimeText}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{isEmpty && !loading}}">
+      <text class="empty-icon">🐾</text>
+      <view class="empty-text">暂无相关信息</view>
+      <view class="empty-tip">快来发布第一条信息吧</view>
+      <view class="btn btn-primary btn-small" bindtap="goToPublish">发布信息</view>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view class="loading-container" wx:if="{{loading}}">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">加载中...</text>
+    </view>
+    
+    <!-- 没有更多 -->
+    <view class="no-more" wx:if="{{!hasMore && list.length > 0 && !loading}}">
+      <text>— 已经到底啦 —</text>
+    </view>
+    
+    <!-- 底部占位 -->
+    <view class="bottom-placeholder"></view>
+  </scroll-view>
+  
+  <!-- 底部发布按钮 -->
+  <view class="publish-btn" bindtap="goToPublish">
+    <text class="publish-icon">+</text>
+    <text class="publish-text">发布</text>
+  </view>
+</view>

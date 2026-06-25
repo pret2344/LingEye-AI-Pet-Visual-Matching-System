@@ -1,0 +1,89 @@
+<!--pages/profile/profile.wxml-->
+<!-- 个人中心页 -->
+
+<view class="container">
+  <!-- 未登录状态 -->
+  <view class="login-banner" wx:if="{{!isLoggedIn}}">
+    <view class="banner-content">
+      <view class="avatar-placeholder">🐾</view>
+      <view class="login-text">欢迎来到灵眸AI宠物</view>
+      <view class="login-desc">登录后可发布信息、查看匹配结果</view>
+      <view class="login-btn" bindtap="onWxLogin">微信一键登录</view>
+      <view class="privacy-text">登录即表示同意《用户协议》和《隐私政策》</view>
+    </view>
+  </view>
+  
+  <!-- 已登录状态 -->
+  <view class="user-header" wx:if="{{isLoggedIn}}">
+    <image class="user-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+    <view class="user-info">
+      <view class="user-name">{{userInfo.nickName}}</view>
+      <view class="user-desc">欢迎回来 🐾</view>
+    </view>
+    <view class="logout-btn" bindtap="onLogout">退出</view>
+  </view>
+  
+  <!-- 统计数据（已登录显示） -->
+  <view class="stats-container" wx:if="{{isLoggedIn}}">
+    <view class="stat-item">
+      <view class="stat-value">{{stats.publishCount}}</view>
+      <view class="stat-label">发布</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-value">{{stats.matchCount}}</view>
+      <view class="stat-label">匹配</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-value">{{stats.favoriteCount}}</view>
+      <view class="stat-label">收藏</view>
+    </view>
+  </view>
+  
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="section-title">我的服务</view>
+    <view class="menu-list">
+      <view 
+        class="menu-item"
+        wx:for="{{menuItems}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onMenuClick"
+      >
+        <view class="menu-icon">{{item.icon}}</view>
+        <view class="menu-info">
+          <view class="menu-name">{{item.name}}</view>
+        </view>
+        <view class="menu-badge" wx:if="{{item.badge}}">{{item.badge}}</view>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 其他菜单 -->
+  <view class="menu-section">
+    <view class="section-title">其他</view>
+    <view class="menu-list">
+      <view 
+        class="menu-item"
+        wx:for="{{otherItems}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onMenuClick"
+      >
+        <view class="menu-icon">{{item.icon}}</view>
+        <view class="menu-info">
+          <view class="menu-name">{{item.name}}</view>
+        </view>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部公益提示 -->
+  <view class="footer-tip">
+    <text>🐾 每一次分享都是一份希望</text>
+  </view>
+</view>

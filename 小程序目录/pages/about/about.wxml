@@ -1,0 +1,56 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <!-- Logo和版本 -->
+  <view class="header-section">
+    <view class="logo">🐾</view>
+    <view class="app-name">灵眸AI宠物</view>
+    <view class="version">v{{version}}</view>
+  </view>
+  
+  <!-- 介绍 -->
+  <view class="intro-section">
+    <view class="intro-text">
+      灵眸AI宠物是一款公益属性的宠物互助平台，通过AI图像识别技术，帮助走失宠物与流浪动物找到回家的路。
+    </view>
+  </view>
+  
+  <!-- 功能特点 -->
+  <view class="features-section">
+    <view class="section-title">核心功能</view>
+    <view class="features-list">
+      <view class="feature-item" wx:for="{{features}}" wx:key="title">
+        <view class="feature-icon">{{item.icon}}</view>
+        <view class="feature-info">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 联系方式 -->
+  <view class="contact-section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-item" bindtap="onContactUs">
+      <view class="contact-icon">📞</view>
+      <view class="contact-info">
+        <view class="contact-title">在线客服</view>
+        <view class="contact-desc">微信号：lingmou-pet</view>
+      </view>
+      <view class="contact-arrow">›</view>
+    </view>
+  </view>
+  
+  <!-- 协议 -->
+  <view class="agreement-section">
+    <view class="agreement-item" bindtap="onUserAgreement">用户协议</view>
+    <view class="agreement-divider">|</view>
+    <view class="agreement-item" bindtap="onPrivacyPolicy">隐私政策</view>
+  </view>
+  
+  <!-- 版权 -->
+  <view class="copyright">
+    <text>© 2024 灵眸AI宠物</text>
+    <text>让每一只宠物都能找到回家的路</text>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+<!--pages/map/map.wxml-->
+<!-- 地图页 -->
+
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="nav-bar">
+    <view class="nav-title">📍 地图查看</view>
+    <view class="locate-btn" bindtap="onLocate">
+      {{isLocating ? '定位中...' : '定位'}}
+    </view>
+  </view>
+  
+  <!-- 地图组件 -->
+  <map 
+    class="map-container"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    scale="{{scale}}"
+    markers="{{markers}}"
+    bindmarkertap="onMarkerTap"
+    show-location
+  >
+    <!-- 自定义标记点 -->
+    <view 
+      wx:for="{{markers}}"
+      wx:key="id"
+      class="custom-marker marker-{{item.data.type}}"
+      style="left: {{item.left}}rpx; top: {{item.top}}rpx;"
+    >
+      <view class="marker-icon">{{item.data.type === 'lost' ? '🔴' : item.data.type === 'found' ? '🟢' : '🔵'}}</view>
+    </view>
+  </map>
+  
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view 
+      class="filter-item {{currentFilter === item.key ? 'active' : ''}}"
+      wx:for="{{filterTabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onFilterChange"
+    >
+      {{item.name}}
+    </view>
+  </view>
+  
+  <!-- 图例 -->
+  <view class="legend-bar">
+    <view class="legend-item">
+      <view class="legend-dot lost"></view>
+      <text>走失</text>
+    </view>
+    <view class="legend-item">
+      <view class="legend-dot found"></view>
+      <text>发现</text>
+    </view>
+    <view class="legend-item">
+      <view class="legend-dot adopt"></view>
+      <text>领养</text>
+    </view>
+  </view>
+  
+  <!-- 标记点弹窗 -->
+  <view class="popup-overlay" wx:if="{{showPopup}}" bindtap="onClosePopup">
+    <view class="popup-content" catchtap="onPopupTap">
+      <image class="popup-image" src="{{popupData.image}}" mode="aspectFill" />
+      <view class="popup-info">
+        <view class="popup-title">{{popupData.title}}</view>
+        <view class="popup-type type-{{popupData.type}}">
+          {{popupData.type === 'lost' ? '走失' : popupData.type === 'found' ? '发现' : '领养'}}
+        </view>
+        <view class="popup-similarity" wx:if="{{popupData.similarity > 0}}">
+          相似度：{{popupData.similarity}}%
+        </view>
+      </view>
+      <view class="popup-action" bindtap="onViewDetail">查看详情</view>
+      <view class="popup-close" bindtap="onClosePopup">✕</view>
+    </view>
+  </view>
+</view>

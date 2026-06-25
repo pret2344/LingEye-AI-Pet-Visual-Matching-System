@@ -1,0 +1,131 @@
+/**
+ * 我的匹配页样式
+ */
+
+page {
+  background-color: #F5F5F5;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.list-container {
+  padding: 24rpx;
+}
+
+.match-item {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.match-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.match-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+}
+
+.match-arrow {
+  font-size: 32rpx;
+  color: #CCCCCC;
+  margin: 0 24rpx;
+}
+
+.match-info {
+  text-align: center;
+}
+
+.match-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.match-similarity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+}
+
+.similarity-bar {
+  width: 200rpx;
+  height: 12rpx;
+  background-color: #E5E5E5;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-right: 16rpx;
+}
+
+.similarity-fill {
+  height: 100%;
+  border-radius: 6rpx;
+}
+
+.similarity-fill.high {
+  background-color: #52C41A;
+}
+
+.similarity-fill.medium {
+  background-color: #FAAD14;
+}
+
+.similarity-fill.low {
+  background-color: #FF4D4F;
+}
+
+.similarity-value {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.similarity-value.high {
+  color: #52C41A;
+}
+
+.similarity-value.medium {
+  color: #FAAD14;
+}
+
+.similarity-value.low {
+  color: #FF4D4F;
+}
+
+.match-time {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 48rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 48rpx;
+  font-size: 26rpx;
+  color: #999999;
+}

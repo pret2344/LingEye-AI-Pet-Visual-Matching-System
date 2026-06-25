@@ -1,0 +1,57 @@
+/**
+ * 设置页样式
+ */
+
+page {
+  background-color: #F5F5F5;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+.settings-section {
+  background-color: #FFFFFF;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #999999;
+  padding: 24rpx;
+  padding-bottom: 16rpx;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-title {
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.setting-desc {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.setting-arrow {
+  font-size: 32rpx;
+  color: #CCCCCC;
+}

@@ -1,0 +1,225 @@
+<!--pages/publish/publish.wxml-->
+<!-- 信息发布页 -->
+
+<view class="container">
+  <!-- 顶部导航 -->
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="onBack">‹</view>
+    <view class="nav-title">发布信息</view>
+    <view class="nav-placeholder"></view>
+  </view>
+  
+  <!-- 类型选择 -->
+  <view class="type-tabs">
+    <view 
+      class="type-tab {{currentType === item.key ? 'active' : ''}}"
+      wx:for="{{typeTabs}}"
+      wx:key="key"
+      data-key="{{item.key}}"
+      bindtap="onTypeChange"
+    >
+      {{item.name}}
+    </view>
+  </view>
+  
+  <!-- 表单内容 -->
+  <scroll-view class="form-scroll" scroll-y>
+    <!-- 图片上传区 -->
+    <view class="form-section">
+      <view class="section-title">
+        <text>*</text>
+        <text>图片</text>
+      </view>
+      <view class="upload-area">
+        <view 
+          class="upload-item"
+          wx:for="{{images}}"
+          wx:key="index"
+          data-index="{{index}}"
+          bindtap="onPreviewImage"
+        >
+          <image class="upload-image" src="{{item}}" mode="aspectFill" />
+          <view class="upload-cover" data-index="{{index}}" bindtap="onDeleteImage">✕</view>
+          <view class="cover-tag" wx:if="{{index === 0}}">封面</view>
+        </view>
+        <view 
+          class="upload-btn"
+          wx:if="{{images.length < maxImages}}"
+          bindtap="onChooseImage"
+        >
+          <text class="upload-icon">+</text>
+          <text class="upload-text">添加图片</text>
+        </view>
+      </view>
+      
+      <!-- AI识别按钮 -->
+      <view class="ai-btn" bindtap="onAiRecognize" wx:if="{{images.length > 0}}">
+        <text class="ai-icon">🤖</text>
+        <text class="ai-text">{{isAiLoading ? 'AI识别中...' : 'AI识别品种'}}</text>
+      </view>
+      
+      <!-- AI识别结果 -->
+      <view class="ai-result" wx:if="{{aiResult}}">
+        <view class="ai-title">AI识别结果</view>
+        <view class="ai-content">
+          <view class="ai-item">
+            <text class="ai-label">品种：</text>
+            <text class="ai-value">{{aiResult.breed}}</text>
+          </view>
+          <view class="ai-item">
+            <text class="ai-label">毛色：</text>
+            <text class="ai-value">{{aiResult.color}}</text>
+          </view>
+          <view class="ai-item">
+            <text class="ai-label">置信度：</text>
+            <text class="ai-value">{{aiResult.confidence}}%</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 标题 -->
+    <view class="form-section">
+      <view class="section-title">
+        <text>*</text>
+        <text>标题</text>
+      </view>
+      <input 
+        class="form-input"
+        placeholder="请输入标题"
+        placeholder-class="input-placeholder"
+        value="{{formData.title}}"
+        data-field="title"
+        bindinput="onInputChange"
+      />
+    </view>
+    
+    <!-- 品种（选填） -->
+    <view class="form-section">
+      <view class="section-title">品种</view>
+      <input 
+        class="form-input"
+        placeholder="请输入品种（可通过AI识别填充）"
+        placeholder-class="input-placeholder"
+        value="{{formData.breed}}"
+        data-field="breed"
+        bindinput="onInputChange"
+      />
+    </view>
+    
+    <!-- 毛色（选填） -->
+    <view class="form-section">
+      <view class="section-title">毛色</view>
+      <input 
+        class="form-input"
+        placeholder="请输入毛色（可通过AI识别填充）"
+        placeholder-class="input-placeholder"
+        value="{{formData.color}}"
+        data-field="color"
+        bindinput="onInputChange"
+      />
+    </view>
+    
+    <!-- 性别（选填） -->
+    <view class="form-section">
+      <view class="section-title">性别</view>
+      <view class="gender-options">
+        <view 
+          class="gender-option {{formData.gender === 'male' ? 'active' : ''}}"
+          data-field="gender"
+          data-value="male"
+          bindtap="onInputChange"
+        >
+          公
+        </view>
+        <view 
+          class="gender-option {{formData.gender === 'female' ? 'active' : ''}}"
+          data-field="gender"
+          data-value="female"
+          bindtap="onInputChange"
+        >
+          母
+        </view>
+        <view 
+          class="gender-option {{formData.gender === 'unknown' ? 'active' : ''}}"
+          data-field="gender"
+          data-value="unknown"
+          bindtap="onInputChange"
+        >
+          未知
+        </view>
+      </view>
+    </view>
+    
+    <!-- 年龄（选填） -->
+    <view class="form-section">
+      <view class="section-title">年龄</view>
+      <input 
+        class="form-input"
+        placeholder="请输入年龄，如：2岁"
+        placeholder-class="input-placeholder"
+        value="{{formData.age}}"
+        data-field="age"
+        bindinput="onInputChange"
+      />
+    </view>
+    
+    <!-- 详细描述 -->
+    <view class="form-section">
+      <view class="section-title">
+        <text>*</text>
+        <text>详细描述</text>
+      </view>
+      <textarea 
+        class="form-textarea"
+        placeholder="请详细描述宠物特征、走失经过、联系方式等信息..."
+        placeholder-class="input-placeholder"
+        value="{{formData.description}}"
+        data-field="description"
+        bindinput="onInputChange"
+        maxlength="1000"
+      />
+      <view class="textarea-count">{{formData.description.length}}/1000</view>
+    </view>
+    
+    <!-- 地点 -->
+    <view class="form-section">
+      <view class="section-title">
+        <text>*</text>
+        <text>地点</text>
+      </view>
+      <view 
+        class="location-picker"
+        bindtap="onChooseLocation"
+      >
+        <text class="location-icon">📍</text>
+        <text class="location-text">{{formData.location || '请选择地点'}}</text>
+        <text class="location-arrow">›</text>
+      </view>
+    </view>
+    
+    <!-- 悬赏说明（选填） -->
+    <view class="form-section">
+      <view class="section-title">悬赏说明</view>
+      <textarea 
+        class="form-textarea"
+        placeholder="请描述悬赏内容，本平台不涉及资金交易"
+        placeholder-class="input-placeholder"
+        value="{{formData.reward}}"
+        data-field="reward"
+        bindinput="onInputChange"
+        maxlength="500"
+      />
+      <view class="reward-tip">⚠️ 本平台为公益平台，不涉及资金交易</view>
+    </view>
+    
+    <!-- 底部占位 -->
+    <view class="bottom-placeholder"></view>
+  </scroll-view>
+  
+  <!-- 底部提交按钮 -->
+  <view class="submit-bar">
+    <view class="daily-tip">今日已发布 {{todayCount}}/{{dailyLimit}} 条</view>
+    <view class="submit-btn" bindtap="onSubmit">发布信息</view>
+  </view>
+</view>
