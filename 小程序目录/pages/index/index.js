@@ -55,7 +55,7 @@ Page({
         distance: 1200,
         status: 'published',
         createdAt: '2024-01-15 10:30:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_golden_retriever.jpg',
         description: '我家金毛犬于1月15日早上在望京SOHO附近走失，名字叫旺财，今年3岁，性格温顺，脖子上有红色项圈。如有看到请联系我，必有重谢！'
       },
       {
@@ -70,7 +70,7 @@ Page({
         distance: 2500,
         status: 'published',
         createdAt: '2024-01-14 18:20:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_british_shorthair.jpg',
         description: '蓝猫，公，2岁，于1月14日傍晚在中关村附近走失，脖子上有银色铃铛。'
       },
       {
@@ -85,7 +85,7 @@ Page({
         distance: 4200,
         status: 'published',
         createdAt: '2024-01-14 09:15:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_teddy_dog.jpg',
         description: '棕色泰迪，母，1岁，穿红色小衣服，于14日早上在西单商场附近走失。'
       },
       {
@@ -100,7 +100,7 @@ Page({
         distance: 5800,
         status: 'published',
         createdAt: '2024-01-13 16:40:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_husky.jpg',
         description: '哈士奇，公，4岁，蓝眼睛，于13日下午在方庄附近走失。'
       },
       {
@@ -115,7 +115,7 @@ Page({
         distance: 3800,
         status: 'published',
         createdAt: '2024-01-13 11:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_orange_cat.jpg',
         description: '橘猫，公，3岁，体型较胖，13日上午在王府井附近走失。'
       },
       {
@@ -130,7 +130,7 @@ Page({
         distance: 8500,
         status: 'published',
         createdAt: '2024-01-12 15:30:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/lost_samoyed.jpg',
         description: '萨摩耶，母，2岁，毛很白很蓬松，12日下午在通州万达附近走失。'
       }
     ],
@@ -147,7 +147,7 @@ Page({
         distance: 1500,
         status: 'published',
         createdAt: '2024-01-15 08:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/found_stray_cat.jpg',
         description: '今早在望京某小区楼下发现一只黑白花猫，看起来很温顺，似乎走丢了。'
       },
       {
@@ -162,7 +162,7 @@ Page({
         distance: 2800,
         status: 'published',
         createdAt: '2024-01-14 20:15:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/found_chinese_dog.jpg',
         description: '晚上在五道口地铁站发现一只小黄狗，一直在原地徘徊，好像在找主人。'
       },
       {
@@ -177,7 +177,7 @@ Page({
         distance: 4000,
         status: 'published',
         createdAt: '2024-01-14 14:30:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/found_stray_orange.jpg',
         description: '下午在中山公园发现一只橘猫，看起来很亲人，似乎是走失的家猫。'
       },
       {
@@ -192,7 +192,7 @@ Page({
         distance: 2200,
         status: 'published',
         createdAt: '2024-01-13 17:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/found_chihuahua.jpg',
         description: '在三里屯某便利店门口发现一只吉娃娃，一直在叫，好像在找主人。'
       }
     ],
@@ -209,7 +209,7 @@ Page({
         distance: 2600,
         status: 'published',
         createdAt: '2024-01-15 09:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/adopt_kitten.jpg',
         description: '三个月大的橘猫弟弟，性格温顺，已经做过驱虫，希望找个有爱心的主人。'
       },
       {
@@ -224,7 +224,7 @@ Page({
         distance: 1800,
         status: 'published',
         createdAt: '2024-01-14 10:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/adopt_samoyed_puppy.jpg',
         description: '两个月大的萨摩耶妹妹，非常可爱，疫苗已打，希望给她找个温暖的家。'
       },
       {
@@ -239,7 +239,7 @@ Page({
         distance: 3800,
         status: 'published',
         createdAt: '2024-01-13 11:30:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/adopt_calico_cat.jpg',
         description: '一岁的三花妹妹，性格活泼，已绝育，希望找个有耐心的主人。'
       },
       {
@@ -254,7 +254,7 @@ Page({
         distance: 5200,
         status: 'published',
         createdAt: '2024-01-12 16:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/adopt_corgi.jpg',
         description: '三个月大的柯基弟弟，小短腿超可爱，已打疫苗，期待新家。'
       },
       {
@@ -269,7 +269,7 @@ Page({
         distance: 8000,
         status: 'published',
         createdAt: '2024-01-11 14:00:00',
-        coverImage: 'https://img.yzcdn.cn/vant/cat.jpeg',
+        coverImage: '/assets/images/adopt_blue_cat.jpg',
         description: '两岁的蓝猫弟弟，性格温顺，已绝育，希望找个安静的家。'
       }
     ]
